@@ -7,10 +7,10 @@ CREATE DATABASE TST_BD_VFPC;
 /*-------------------------------------------------------*/
 USE TST_BD_VFPC;
 /*-------------------------------------------------------*/
-/*Paso 03 Creo tabla Cliente                       */
+/*Paso 03 Creo tabla Carrito Compras                     */
 /*-------------------------------------------------------*/
 CREATE TABLE `TST_BD_VFPC`.`Carrito_compras` (
-    `id_carrito` INT NOT NULL,
+    `id_carrito` INT NOT NULL AUTO_INCREMENT
     `articulo_nombre` VARCHAR(45) NULL,
     `Cantidad` INT NULL,
     `Precio` INT NULL,
@@ -18,11 +18,22 @@ CREATE TABLE `TST_BD_VFPC`.`Carrito_compras` (
     `Orden_compra` INT NULL,
     PRIMARY KEY (`id_carrito`))
      ENGINE = InnoDB;
-
-
-
 /*-------------------------------------------------------*/
-/*Paso 05 Creo tabla Cliente                       */
+/*Paso 04 Creo tabla Historial Compras                   */
+/*-------------------------------------------------------*/
+CREATE TABLE `TST_BD_VFPC`.`Historial_compras` (
+    `id_historial` INT NOT NULL AUTO_INCREMENT,
+    `Articulo_nombre` VARCHAR(45) NULL,
+    `Cantidad` INT NULL,
+    `Precio` INT NULL,
+    `Fecha_compra` DATE NULL,
+    `Orden_compra` INT NULL,
+    'id_carrito' INT NULL,
+    PRIMARY KEY (`id_historial`)
+    FOREIGN KEY (`id_carrito`) REFERENCES `Carrito_compras`(`id_carrito`))
+     ENGINE = InnoDB;
+/*-------------------------------------------------------*/
+/*Paso 05 Creo tabla Cliente                             */
 /*-------------------------------------------------------*/
 CREATE TABLE `TST_BD_VFPC`.`Cliente` (
     `DNI` INT NOT NULL,
@@ -43,4 +54,5 @@ CREATE TABLE `TST_BD_VFPC`.`Cliente` (
     PRIMARY KEY (`DNI`)
     FOREIGN KEY (`id_carrito`) REFERENCES `Carrito_compras`(`id_carrito`),
     FOREIGN KEY (`id_istorial`) REFERENCES `Historial_compras`(`id_historial`)
+    
 ) ENGINE = InnoDB;
