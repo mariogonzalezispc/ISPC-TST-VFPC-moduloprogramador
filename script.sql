@@ -28,7 +28,7 @@ CREATE TABLE `TST_BD_VFPC`.`Historial_compras` (
     `Precio` INT NULL,
     `Fecha_compra` DATE NULL,
     `Orden_compra` INT NULL,
-    'id_carrito' INT NULL,
+    `id_carrito` INT NULL,
     PRIMARY KEY (`id_historial`)
     FOREIGN KEY (`id_carrito`) REFERENCES `Carrito_compras`(`id_carrito`))
      ENGINE = InnoDB;
@@ -54,7 +54,7 @@ CREATE TABLE `TST_BD_VFPC`.`Cliente` (
     PRIMARY KEY (`DNI`)
     FOREIGN KEY (`id_carrito`) REFERENCES `Carrito_compras`(`id_carrito`),
     FOREIGN KEY (`id_historial`) REFERENCES `Historial_compras`(`id_historial`))
-     ENGINE = InnoDB;
+    ENGINE = InnoDB;
 /*-------------------------------------------------------*/
 /*Paso 06 carga clientes                                 */
 /*-------------------------------------------------------*/
@@ -76,20 +76,20 @@ INSERT INTO `Cliente` (
         `id_historial`
         )
 VALUES (
-        '24569781',
-        'NULL',
-        'Gonzalez',
-        'Fornaro',
-        'Juan',
-        'Pueyrredon',
-        '123',
-        'Nueva Cordoba',
-        '3518123456',
-        '3512456789',
-        '20',
-        'juan.g@gmail.com',
-        '01-08-2018',
-        'NULL',
-        'NULL'
+        `24569781`,
+        `NULL`,
+        `Gonzalez`,
+        `Fornaro`,
+        `Juan`,
+        `Pueyrredon`,
+        `123`,
+        `Nueva Cordoba`,
+        `3518123456`,
+        `3512456789`,
+        `20`,
+        `juan.g@gmail.com`,
+        `01-08-2018`,
+        `NULL`,
+        `NULL`
     );
 /*-------------------------------------------------------*/
