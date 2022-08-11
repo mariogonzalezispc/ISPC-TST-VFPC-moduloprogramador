@@ -19,9 +19,10 @@ CREATE TABLE `TST_BD_VFPC`.`Carrito_compras`(
     PRIMARY KEY (`id_carrito`))
      ENGINE = InnoDB;
 
+SELECT * FROM Carrito_compras;
 
 /*-------------------------------------------------------*/
-/*Paso 04 cargo registros en carrito de compras                                 */
+/*Paso 04 cargo registros en carrito de compras          */
 /*-------------------------------------------------------*/
 INSERT INTO `TST_BD_VFPC`.`Carrito_compras`(
         `id_carrito`,
