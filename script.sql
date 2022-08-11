@@ -18,6 +18,52 @@ CREATE TABLE `TST_BD_VFPC`.`Carrito_compras`(
     `Orden_compra` INT NULL,
     PRIMARY KEY (`id_carrito`))
      ENGINE = InnoDB;
+
+
+/*-------------------------------------------------------*/
+/*Paso 04 cargo registros en carrito de compras                                 */
+/*-------------------------------------------------------*/
+INSERT INTO `TST_BD_VFPC`.`Carrito_compras`(
+        `id_carrito`,
+        `articulo_nombre`,
+        `Cantidad`,
+        `Precio`,
+        `Fecha_compra`,
+        `Orden_compra`)
+
+VALUES (
+        '1000',
+        'Televisor',
+        '1',
+        '50000',
+        '2018-01-01',
+        '300'
+        );
+INSERT INTO `TST_BD_VFPC`.`Carrito_compras`(
+        `id_carrito`,
+        `articulo_nombre`,
+        `Cantidad`,
+        `Precio`,
+        `Fecha_compra`,
+        `Orden_compra`)
+
+VALUES (
+        '1112',
+        'Celular',
+        '1',
+        '73580',
+        '2018-08-04',
+        '115'
+        );        
+/*-------------------------------------------------------*/
+SELECT * FROM Carrito_compras;
+
+
+
+
+
+
+
 /*-------------------------------------------------------*/
 /*Paso 04 Creo tabla Historial Compras                   */
 /*-------------------------------------------------------*/
@@ -59,6 +105,39 @@ CREATE TABLE `TST_BD_VFPC`.`Cliente`(
 /*-------------------------------------------------------*/
 /*Paso 06 carga clientes                                 */
 /*-------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------------------------------------------------------*/
+/*Paso 0X carga clientes                                 */
+/*-------------------------------------------------------*/
 INSERT INTO `TST_BD_VFPC`.`Cliente`(
         `DNI`,
         `Nro_cliente`,
@@ -78,7 +157,7 @@ INSERT INTO `TST_BD_VFPC`.`Cliente`(
         )
 VALUES (
         '23569874',
-        'NULL',
+        '1',
         'Gonzalez',
         'Fornaro',
         'Juan',
@@ -89,8 +168,8 @@ VALUES (
         '3512456789',
         '20',
         'juan.g@gmail.com',
-        '01-08-2018',
-        'NULL',
-        'NULL'
+        '2018-08-20',
+        '1',
+        '1'
     );
 /*-------------------------------------------------------*/
