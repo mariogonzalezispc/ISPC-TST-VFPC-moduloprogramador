@@ -53,5 +53,5 @@ CREATE TABLE `TST_BD_VFPC`.`Cliente` (
     `id_istorial` INT NULL,
     PRIMARY KEY (`DNI`)
     FOREIGN KEY (`id_carrito`) REFERENCES `Carrito_compras`(`id_carrito`),
-    FOREIGN KEY (`id_istorial`) REFERENCES `Historial_compras`(`id_historial`)
-) ENGINE = InnoDB;
+    FOREIGN KEY (`id_istorial`) REFERENCES `Historial_compras`(`id_historial`))
+ENGINE = InnoDB;
