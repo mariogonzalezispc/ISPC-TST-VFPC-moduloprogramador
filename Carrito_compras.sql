@@ -1,6 +1,5 @@
-
 /*-------------------------------------------------------*/
-/*Paso 03 Creo tabla Carrito Compras                     */
+/*Paso 01 Creo tabla Carrito Compras                     */
 /*-------------------------------------------------------*/
 CREATE TABLE
     `TST_BD_VFPC`.`Carrito_compras`(
@@ -13,12 +12,24 @@ CREATE TABLE
         PRIMARY KEY (`id_carrito`)
     ) ENGINE = InnoDB;
 
+/*-------------------------------------------------------*/
+/*Comando que elimina Carrito Compras                     */
+/*-------------------------------------------------------*/
 DROP TABLE `Carrito_compras`;
-
+/*-------------------------------------------------------*/
+/*Comando que lista Carrito Compras                     */
+/*-------------------------------------------------------*/
 SELECT * FROM Carrito_compras;
 
+
+
+
+
+
+
+
 /*-------------------------------------------------------*/
-/*Paso 04 cargo registros en carrito de compras          */
+/*Paso 02 cargo registros en carrito de compras          */
 /*-------------------------------------------------------*/
 INSERT INTO
     `TST_BD_VFPC`.`Carrito_compras`(
@@ -30,28 +41,50 @@ INSERT INTO
         `Orden_compra`
     )
 VALUES (
-        '1000',
+        NULL,
         'Televisor',
         '1',
         '50000',
         '2018-01-01',
         '1001'
     ),(
-        '1112',
+        NULL,
         'Celular',
         '1',
         '73580',
         '2018-08-04',
         '1002'
-    ),
-    (
-        '1020',
+    ),(
+        NULL,
         'Consola de juegos',
         '1',
         '73580',
         '2018-08-04',
-        '1002'
+        '1003'
+    ),(
+        NULL,
+        'Celular',
+        '1',
+        '73580',
+        '2018-08-04',
+        '1004'
+    ),(
+        NULL,
+        'Celular',
+        '1',
+        '21000',
+        '2022-08-04',
+        NULL
+    ),(
+        NULL,
+        'Televisor UHD',
+        '1',
+        '55800',
+        '2022-06-01',
+        '1101'
     );
+
+
 
 /*-------------------------------------------------------*/
 
