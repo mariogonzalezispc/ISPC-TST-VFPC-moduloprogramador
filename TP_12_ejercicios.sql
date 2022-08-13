@@ -1,5 +1,5 @@
 /*-------------------------------------------------------*/
-/*Paso 01 Creo tabla Cliente                             */
+/*Ejercicio nro 1*/
 /*-------------------------------------------------------*/
 CREATE TABLE
     `TST_BD_VFPC`.`Cliente`(
@@ -24,15 +24,7 @@ CREATE TABLE
     ) ENGINE = InnoDB;
 
 /*-------------------------------------------------------*/
-/*Comando que elimina la tabla Clientes                  */
-/*-------------------------------------------------------*/
-DROP TABLE `Cliente`;
-/*-------------------------------------------------------*/
-/*Comando lista registros de la tabla cliente            */
-/*-------------------------------------------------------*/
-SELECT * FROM Cliente;
-/*-------------------------------------------------------*/
-/*Paso 0X carga clientes                                 */
+/*Ejercicio nro 2*/
 /*-------------------------------------------------------*/
 INSERT INTO `Cliente` 
 (`DNI`,
@@ -65,20 +57,44 @@ INSERT INTO `Cliente`
    'mario.gonzalez@hotmail.com.ar',
    '2022-08-01',
    '1001',
-   '1'),
-  ('41394947',
-   '2009',
-   'Ramirez',
-   'Fiori',
-   'Pedro Alfonso',
-   'San Luis',
-   '18',
-   'Obrero',
-   '3514236578',
-   '3512456666',
-   '23',
-   'pedro@gmail.com',
-   '2022-08-11',
-   '1002',
-   '2');
+   '1');
 
+/*-------------------------------------------------------*/
+/*Ejercicio nro 3*/
+/*-------------------------------------------------------*/
+
+SELECT *
+FROM `cliente`
+JOIN `Historial_compras` ON `Cliente`.`id_historial` = `Dueno`.`DNI`
+-- WHERE
+--     `Dueno`.`DNI` = '21394947';
+
+
+
+
+
+
+
+
+-- SELECT *
+-- FROM `Perro`
+--     JOIN `Dueno` ON `Perro`.`DNI_dueno` = `Dueno`.`DNI`
+-- WHERE
+--     `Dueno`.`DNI` = '21394947';
+
+-- select * from `Historial`;
+
+-- SELECT Producto,
+--        max(Fecha) max_fecha
+-- FROM Tabla
+-- GROUP BY Producto
+
+
+
+-- -- SELECT * FROM COMISION where month='10' and year='2016'
+-- SELECT * FROM COMISION where year='2016'
+
+-- Resetear PRIMARY KEY
+-- ALTER TABLE members DROP ID;
+-- ALTER TABLE members AUTO_INCREMENT = 1;
+-- ALTER TABLE members ADD ID int UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;
