@@ -5,11 +5,13 @@
 CREATE DATABASE TST_BD_VFPC;
 
 /*-------------------------------------------------------*/
-/*Paso 02 Seleciono la base de datos del TST             */
+/*Seleciono la base de datos del TST                     */
 /*-------------------------------------------------------*/
 USE TST_BD_VFPC;
 
 /*-------------------------------------------------------*/
-/*Paso 03 Comando elimina base de datos              */
+/*Comando elimina base de datos                          */
 /*-------------------------------------------------------*/
 DROP DATABASE TST_BD_VFPC;
+
+/*-------------------------------------------------------*/

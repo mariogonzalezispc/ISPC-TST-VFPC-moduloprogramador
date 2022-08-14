@@ -4,7 +4,7 @@
 CREATE TABLE
     `TST_BD_VFPC`.`Cliente`(
         `DNI` INT NOT NULL,
-        `Nro_cliente` INT NOT NULL,
+        `Nro_cliente` UNIQUE INT NOT NULL,
         `Apellido_paterno` VARCHAR(45) NULL,
         `Apellido_materno` VARCHAR(45) NULL,
         `Nombre` VARCHAR(45) NULL,

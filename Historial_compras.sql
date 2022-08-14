@@ -6,7 +6,7 @@ CREATE TABLE
         `id_historial` INT NOT NULL AUTO_INCREMENT,
         `Articulo_nombre` VARCHAR(45) NULL,
         `Cantidad` INT NULL,
-        `Precio` INT NULL,
+        `Precio` DECIMAL(9,2) NULL,
         `Fecha_compra` DATE NULL,
         `Orden_compra` INT NULL,
         `id_carrito` INT NULL,

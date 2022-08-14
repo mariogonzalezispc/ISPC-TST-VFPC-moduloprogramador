@@ -63,6 +63,26 @@ INSERT INTO `Cliente`
 /*Ejercicio nro 3*/
 /*-------------------------------------------------------*/
 
+DELETE 'Cliente' FROM 'Cliente' 
+JOIN 
+(SELECT 'Cliente.Nro_cliente' 
+FROM 'Cliente' 
+join 'historial_compras'
+ON ('Cliente.id_historial'='Historial_compras.id_historial') 
+WHERE 'Historial_compras.id_historial') 
+WHERE 'Historial_compras.id_historial'< '2015-01-01';
+
+
+
+
+
+
+
+
+
+
+
+
 SELECT *
 FROM `cliente`
 JOIN `Historial_compras` ON `Cliente`.`id_historial` = `Dueno`.`DNI`
