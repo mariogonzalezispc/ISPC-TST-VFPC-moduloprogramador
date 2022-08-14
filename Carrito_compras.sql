@@ -13,7 +13,7 @@ CREATE TABLE
     ) ENGINE = InnoDB;
 
 /*-------------------------------------------------------*/
-/*Comando que elimina  o vacia la tabla Carrito Compras                     */
+/*Comando que elimina  o vacia la tabla Carrito Compras  */
 /*-------------------------------------------------------*/
 DROP TABLE `Carrito_compras`;
 TRUNCATE TABLE `Carrito_compras`;
@@ -36,7 +36,7 @@ INSERT INTO
     )
 VALUES (
         NULL,
-        'Televisor',
+        'Televisor UHD',
         '1',
         '50000',
         '2018-01-01',
@@ -99,175 +99,39 @@ VALUES (
         '1009'
     ),(
         NULL,
-        'Consola Sony',
+        'Televisor UHD',
         '1',
         '155800',
         '2022-07-23',
         '1010'
-    );
-
-INSERT INTO
-    `TST_BD_VFPC`.`Carrito_compras`(
-        `id_carrito`,
-        `articulo_nombre`,
-        `Cantidad`,
-        `Precio`,
-        `Fecha_compra`,
-        `Orden_compra`
-    )
-VALUES (
+    ),(
         NULL,
-        'Consola Sony',
-        '2',
-        '200000',
-        '2022-01-31',
+        'Consola de juegos',
+        '1',
+        '155800',
+        '2022-07-23',
         '1011'
     ),(
         NULL,
-        'Consola Sony',
+        'Consola de juegos',
         '1',
-        '73580',
-        '2016-03-04',
-        NULL
-    ),(
-        NULL,
-        'Celular Samsumg',
-        '1',
-        '23580',
-        '2021-09-14',
-        NULL
-    ),(
-        NULL,
-        'Consola Sony',
-        '1',
-        '73580',
-        '2022-11-09',
+        '62800',
+        '2022-01-18',
         '1012'
     ),(
         NULL,
-        'Consola de Juegos',
+        'Televisor UHD',
         '1',
-        '71000',
-        '2022-04-04',
-        '1013'
-    ),(
-        NULL,
-        'Consola de juegos',
-        '1',
-        '38500',
-        '2021-06-01',
-        NULL
-    ),(
-        NULL,
-        'Consolo de juegos',
-        '1',
-        '24900',
-        '2022-02-02',
+        '35800',
+        '2022-04-03',
         '1014'
     ),(
         NULL,
-        'Televisor BGH',
+        'Consola de juegos',
         '1',
-        '47856',
-        '2020-07-01',
-        NULL
-    ),(
-        NULL,
-        'Televisor UHD',
-        '1',
-        '55800',
-        '2022-07-23',
+        '27800',
+        '2022-07-02',
         '1015'
-    ),(
-        NULL,
-        'Televisor UHD',
-        '1',
-        '225800',
-        '2022-03-21',
-        '1016'
-    );
-
-
-
-INSERT INTO
-    `TST_BD_VFPC`.`Carrito_compras`(
-        `id_carrito`,
-        `articulo_nombre`,
-        `Cantidad`,
-        `Precio`,
-        `Fecha_compra`,
-        `Orden_compra`
-    )
-VALUES (
-        NULL,
-        'Consola de juegos',
-        '4',
-        '189000',
-        '2022-05-25',
-        '1017'
-    ),(
-        NULL,
-        'Consola de juegos',
-        '1',
-        '73580',
-        '2022-05-27',
-        NULL
-    ),(
-        NULL,
-        'Consola de juegos',
-        '1',
-        '23580',
-        '2021-09-14',
-        NULL
-    ),(
-        NULL,
-        'Consola de juegos',
-        '1',
-        '73580',
-        '2021-12-19',
-        '1018'
-    ),(
-        NULL,
-        'Consola de Juegos',
-        '1',
-        '71000',
-        '2022-08-14',
-        '1019'
-    ),(
-        NULL,
-        'Consola de juegos',
-        '1',
-        '18500',
-        '2021-07-11',
-        NULL
-    ),(
-        NULL,
-        'Consolo de juegos',
-        '1',
-        '27900',
-        '2022-12-02',
-        '1020'
-    ),(
-        NULL,
-        'Televisor BGH',
-        '1',
-        '47856',
-        '2020-07-10',
-        NULL
-    ),(
-        NULL,
-        'Televisor UHD',
-        '1',
-        '55800',
-        '2022-07-23',
-        '1021'
-    ),(
-        NULL,
-        'Televisor UHD',
-        '1',
-        '225800',
-        '2022-03-27',
-        '1022'
     );
 
 

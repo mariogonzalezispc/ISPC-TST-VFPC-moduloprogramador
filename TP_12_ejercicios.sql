@@ -4,7 +4,7 @@
 CREATE TABLE
     `TST_BD_VFPC`.`Cliente`(
         `DNI` INT NOT NULL,
-        `Nro_cliente` INT NOT NULL,
+        `Nro_cliente` INT UNIQUE NOT NULL,
         `Apellido_paterno` VARCHAR(45) NULL,
         `Apellido_materno` VARCHAR(45) NULL,
         `Nombre` VARCHAR(45) NULL,
@@ -62,20 +62,73 @@ INSERT INTO `Cliente`
 /*-------------------------------------------------------*/
 /*Ejercicio nro 3*/
 /*-------------------------------------------------------*/
-
-DELETE 'Cliente' FROM 'Cliente' 
-JOIN 
-(SELECT 'Cliente.Nro_cliente' 
-FROM 'Cliente' 
-join 'historial_compras'
-ON ('Cliente.id_historial'='Historial_compras.id_historial') 
-WHERE 'Historial_compras.id_historial') 
-WHERE 'Historial_compras.id_historial'< '2015-01-01';
-
-
-
+SELECT DNI,
+Nro_cliente,
+Apellido_paterno,
+Nombre,
+Edad,
+Fecha_Alta
+FROM `Historial_compras` 
+INNER JOIN Cliente
+ON Historial_compras.id_historial = Cliente.id_historial
+WHERE Fecha_Compra < '2020-01-01';
 
 
+/*-------------------------------------------------------*/
+/*Ejercicio nro 4*/
+/*-------------------------------------------------------*/
+UPDATE `Cliente` 
+SET `Fecha_Alta` = '2022-08-08' 
+WHERE `Cliente`.`DNI` = '21394948'; 
+
+/*-------------------------------------------------------*/
+/*Ejercicio nro 5*/
+/*-------------------------------------------------------*/
+SELECT DNI,
+Nro_cliente,
+Apellido_paterno,
+Nombre,
+Edad,
+Fecha_Alta,
+Fecha_compra,
+Orden_compra
+FROM Cliente 
+INNER JOIN Historial_compras
+WHERE Cliente.id_historial = Historial_compras.id_historial
+AND Historial_compras.Articulo_nombre = 'Televisor UHD';
+/*-------------------------------------------------------*/
+/*Ejercicio nro 6*/
+/*-------------------------------------------------------*/
+SELECT DNI,
+Nro_cliente,
+Apellido_paterno,
+Nombre,
+Edad,
+Fecha_Alta,
+Fecha_compra
+FROM Cliente 
+INNER JOIN Historial_compras
+WHERE Historial_compras.Fecha_compra >= '2022-01-01' 
+AND Historial_compras.Fecha_compra < '2022-08-14' ;
+
+/*-------------------------------------------------------*/
+/*Ejercicio nro 7*/
+/*-------------------------------------------------------*/
+
+SELECT 
+Articulo_nombre,
+Cantidad,
+Precio
+FROM Historial_compras
+WHERE Historial_compras.Fecha_compra 
+BETWEEN '2022-07-01' AND '2022-07-31';
+
+
+
+
+/*-------------------------------------------------------*/
+/*Ejercicio nro 8*/
+/*-------------------------------------------------------*
 
 
 
@@ -83,14 +136,31 @@ WHERE 'Historial_compras.id_historial'< '2015-01-01';
 
 
 
-SELECT *
-FROM `cliente`
-JOIN `Historial_compras` ON `Cliente`.`id_historial` = `Dueno`.`DNI`
--- WHERE
---     `Dueno`.`DNI` = '21394947';
+/*-------------------------------------------------------*/
+/*Ejercicio nro 9*/
+/*-------------------------------------------------------*
 
 
 
+/*-------------------------------------------------------*/
+/*Ejercicio nro 10*/
+/*-------------------------------------------------------*/
+TRUNCATE TABLE `Historial_compras`;
+
+
+
+
+
+/*-------------------------------------------------------*/
+/*Ejercicio nro 11*/
+/*-------------------------------------------------------*
+
+
+
+
+/*-------------------------------------------------------*/
+/*Ejercicio nro 12*/
+/*-------------------------------------------------------*
 
 
 

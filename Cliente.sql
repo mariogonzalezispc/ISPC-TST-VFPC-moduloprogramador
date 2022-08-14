@@ -4,7 +4,7 @@
 CREATE TABLE
     `TST_BD_VFPC`.`Cliente`(
         `DNI` INT NOT NULL,
-        `Nro_cliente` UNIQUE INT NOT NULL,
+        `Nro_cliente` INT UNIQUE NOT NULL AUTO_INCREMENT,
         `Apellido_paterno` VARCHAR(45) NULL,
         `Apellido_materno` VARCHAR(45) NULL,
         `Nombre` VARCHAR(45) NULL,
@@ -27,6 +27,7 @@ CREATE TABLE
 /*Comando que elimina la tabla Clientes                  */
 /*-------------------------------------------------------*/
 DROP TABLE `Cliente`;
+truncate table `Cliente`;
 /*-------------------------------------------------------*/
 /*Comando lista registros de la tabla cliente            */
 /*-------------------------------------------------------*/
@@ -52,7 +53,7 @@ INSERT INTO `Cliente`
   `id_historial`)
   VALUES 
   ('21394948',
-   '2003',
+   NULL,
    'Gonzalez',
    'Fornaro',
    'Mario Alejandro',
@@ -64,10 +65,10 @@ INSERT INTO `Cliente`
    '52',
    'mario.gonzalez@hotmail.com.ar',
    '2022-08-01',
-   '1001',
+   '3',
    '1'),
   ('41394947',
-   '2009',
+   NULL,
    'Ramirez',
    'Fiori',
    'Pedro Alfonso',
@@ -79,6 +80,20 @@ INSERT INTO `Cliente`
    '23',
    'pedro@gmail.com',
    '2022-08-11',
-   '1002',
-   '2');
-
+   '1',
+   '5'),
+  ('43568945',
+   NULL,
+   'Ferreyra',
+   'Leguizamon',
+   'Enrique',
+   'Maestro Vidal',
+   '1080',
+   'Los platanos',
+   '3514656568',
+   '3516876667',
+   '25',
+   'enrique2@gmail.com',
+   '2020-01-02',
+   '3',
+   '9');
