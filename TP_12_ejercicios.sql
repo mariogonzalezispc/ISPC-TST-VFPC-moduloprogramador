@@ -22,7 +22,6 @@ CREATE TABLE
         FOREIGN KEY (`id_carrito`) REFERENCES `Carrito_compras`(`id_carrito`),
         FOREIGN KEY (`id_historial`) REFERENCES `Historial_compras`(`id_historial`)
     ) ENGINE = InnoDB;
-
 /*-------------------------------------------------------*/
 /*Ejercicio nro 2*/
 /*-------------------------------------------------------*/
@@ -58,20 +57,19 @@ INSERT INTO `Cliente`
    '2022-08-01',
    '1001',
    '1');
-
 /*-------------------------------------------------------*/
 /*Ejercicio nro 3*/
 /*-------------------------------------------------------*/
-SELECT DNI,
-Nro_cliente,
-Apellido_paterno,
-Nombre,
-Edad,
-Fecha_Alta
-FROM `Historial_compras` 
-INNER JOIN Cliente
-ON Historial_compras.id_historial = Cliente.id_historial
-WHERE Fecha_Compra < '2020-01-01';
+DELETE Cliente 
+FROM Cliente 
+JOIN Historial_compras
+WHERE (SELECT MAX(Historial_compras.Fecha_compra < 2020-08-01));
+
+
+DELETE Cliente 
+FROM Cliente 
+JOIN Historial_compras
+WHERE curdate() > Historial_compras.Fecha_compra;
 
 
 /*-------------------------------------------------------*/
@@ -80,7 +78,6 @@ WHERE Fecha_Compra < '2020-01-01';
 UPDATE `Cliente` 
 SET `Fecha_Alta` = '2022-08-08' 
 WHERE `Cliente`.`DNI` = '21394948'; 
-
 /*-------------------------------------------------------*/
 /*Ejercicio nro 5*/
 /*-------------------------------------------------------*/
@@ -108,13 +105,11 @@ Fecha_Alta,
 Fecha_compra
 FROM Cliente 
 INNER JOIN Historial_compras
-WHERE Historial_compras.Fecha_compra >= '2022-01-01' 
+WHERE Historial_compras.Fecha_compra > '2022-01-01' 
 AND Historial_compras.Fecha_compra < '2022-08-14' ;
-
 /*-------------------------------------------------------*/
 /*Ejercicio nro 7*/
 /*-------------------------------------------------------*/
-
 SELECT 
 Articulo_nombre,
 Cantidad,
@@ -122,69 +117,90 @@ Precio
 FROM Historial_compras
 WHERE Historial_compras.Fecha_compra 
 BETWEEN '2022-07-01' AND '2022-07-31';
-
-
-
-
 /*-------------------------------------------------------*/
 /*Ejercicio nro 8*/
-/*-------------------------------------------------------*
-
-
-
-
-
-
-
+/*-------------------------------------------------------*/
+SELECT 
+id_carrito,
+Articulo_nombre,
+Cantidad,
+Precio
+FROM Carrito_compras
+WHERE Carrito_compras.Orden_compra = NULL;
 /*-------------------------------------------------------*/
 /*Ejercicio nro 9*/
-/*-------------------------------------------------------*
-
-
-
+/*-------------------------------------------------------*/
+UPDATE `Cliente` 
+SET 'Cliente.Calle' = 'Libertad',
+    'Cliente.Numero' = '123'
+WHERE `Cliente`.`DNI` = '12345678';
 /*-------------------------------------------------------*/
 /*Ejercicio nro 10*/
 /*-------------------------------------------------------*/
-TRUNCATE TABLE `Historial_compras`;
-
-
-
-
-
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE Historial_compras;
 /*-------------------------------------------------------*/
 /*Ejercicio nro 11*/
-/*-------------------------------------------------------*
+/*-------------------------------------------------------*/
+SELECT DNI,
+Nro_cliente,
+Apellido_paterno,
+Nombre,
+Edad,
+Fecha_Alta,
+Fecha_compra
+FROM Cliente 
+INNER JOIN Carrito_compras
+WHERE Carrito_compras.Fecha_compra > (DATE(NOW()) - INTERVAL 24 MONTH) 
+BETWEEN '2020-07-01' AND '2022-08-14';
+AND Orden_compra != NULL;
+
+SELECT DNI,
+Nro_cliente,
+Apellido_paterno,
+Nombre,
+Edad,
+Fecha_Alta,
+Fecha_compra
+FROM Cliente 
+INNER JOIN Carrito_compras
+WHERE Carrito_compras.Fecha_compra AND Orden_compra != NULL
+BETWEEN (DATE(NOW()) - INTERVAL 24 MONTH) AND (DATE(NOW()));
+
+
+
+ELECT DNI, Nombre, Apellido_paterno, Telefono_cel1
+FROM Cliente 
+INNER JOIN Historial_compras 
+ON Historial_compras.Id_historial=Cliente.Id_historial
+WHERE Historial_compras.Orden_compra IS NOT NULL 
+AND Historial_compras.Fecha_compra 
+BETWEEN '2020-01-01' 
+AND '2021-12-31'
+HAVING Historial_compras.Fecha_Compra > '2022-01-01';
+
+
+
+
+
 
 
 
 
 /*-------------------------------------------------------*/
 /*Ejercicio nro 12*/
-/*-------------------------------------------------------*
+/*-------------------------------------------------------*/
+SELECT DNI,
+Nro_cliente,
+Apellido_paterno,
+Nombre,
+Edad,
+Fecha_Alta,
+Fecha_compra
+FROM Cliente 
+INNER JOIN Historial_compras
+WHERE Historial_compras.Articulo_nombre = 'Consola de juegos' 
+AND Cliente.Edad < '35';
 
 
 
-
-
--- SELECT *
--- FROM `Perro`
---     JOIN `Dueno` ON `Perro`.`DNI_dueno` = `Dueno`.`DNI`
--- WHERE
---     `Dueno`.`DNI` = '21394947';
-
--- select * from `Historial`;
-
--- SELECT Producto,
---        max(Fecha) max_fecha
--- FROM Tabla
--- GROUP BY Producto
-
-
-
--- -- SELECT * FROM COMISION where month='10' and year='2016'
--- SELECT * FROM COMISION where year='2016'
-
--- Resetear PRIMARY KEY
--- ALTER TABLE members DROP ID;
--- ALTER TABLE members AUTO_INCREMENT = 1;
--- ALTER TABLE members ADD ID int UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;

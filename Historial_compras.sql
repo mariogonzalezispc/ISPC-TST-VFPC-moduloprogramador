@@ -143,7 +143,16 @@ INSERT INTO `Historial_compras`
  '2022-07-27',
  '1031',
  '9'
+),(
+ NULL,
+ 'Celular Motorola',
+ '1',
+ '15000',
+ '2011-07-27',
+ '1031',
+ '8'
 );
+
 
 
 
