@@ -60,11 +60,31 @@ INSERT INTO `Cliente`
 /*-------------------------------------------------------*/
 /*Ejercicio nro 3*/
 /*-------------------------------------------------------*/
-DELETE Cliente
+
+
+
+SELECT DNI,
+Nombre,
+Apellido_paterno,
+id_historial,
+IF (Fecha_compra > '2020-08-01','si','no')  AS 'COMPRO'
 FROM Cliente
-JOIN Historial_compras 
-WHERE Fecha_compra 
-BETWEEN 2010-08-01 AND 2022-08-14;
+LIMIT 10;
+
+
+DELETE Cliente, Historial_compras
+from Cliente
+inner join Historial_compras
+on Cliente.id_Historial = Historial_compras.id_Historial
+where Historial_compras.Fecha_compra >= '2001-01-01'
+and Historial_compras.Fecha_compra < '2022-01-01';
+
+
+
+
+
+
+
 /*-------------------------------------------------------*/
 /*Ejercicio nro 4*/
 /*-------------------------------------------------------*/
