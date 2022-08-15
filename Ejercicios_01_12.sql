@@ -66,6 +66,7 @@ inner join Historial_compras
 on Cliente.id_Historial = Historial_compras.id_Historial
 where Historial_compras.Fecha_compra >= '2001-01-01'
 and Historial_compras.Fecha_compra < '2022-01-01';
+SELECT * FROM Cliente;
 /*-------------------------------------------------------*/
 /*Ejercicio nro 4*/
 /*-------------------------------------------------------*/
