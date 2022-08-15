@@ -60,18 +60,11 @@ INSERT INTO `Cliente`
 /*-------------------------------------------------------*/
 /*Ejercicio nro 3*/
 /*-------------------------------------------------------*/
-DELETE Cliente 
-FROM Cliente 
-JOIN Historial_compras
-WHERE (SELECT MAX(Historial_compras.Fecha_compra < 2020-08-01));
-
-
-DELETE Cliente 
-FROM Cliente 
-JOIN Historial_compras
-WHERE curdate() > Historial_compras.Fecha_compra;
-
-
+DELETE Cliente
+FROM Cliente
+JOIN Historial_compras 
+WHERE Fecha_compra 
+BETWEEN 2010-08-01 AND 2022-08-14;
 /*-------------------------------------------------------*/
 /*Ejercicio nro 4*/
 /*-------------------------------------------------------*/
@@ -92,7 +85,8 @@ Orden_compra
 FROM Cliente 
 INNER JOIN Historial_compras
 WHERE Cliente.id_historial = Historial_compras.id_historial
-AND Historial_compras.Articulo_nombre = 'Televisor UHD';
+AND Historial_compras.Articulo_nombre = 'Televisor UHD'
+LIMIT 10;
 /*-------------------------------------------------------*/
 /*Ejercicio nro 6*/
 /*-------------------------------------------------------*/
@@ -105,28 +99,21 @@ Fecha_Alta,
 Fecha_compra
 FROM Cliente 
 INNER JOIN Historial_compras
-WHERE Historial_compras.Fecha_compra > '2022-01-01' 
-AND Historial_compras.Fecha_compra < '2022-08-14' ;
+WHERE Fecha_compra > '2022-01-01' 
+AND Fecha_compra < '2022-08-14';
 /*-------------------------------------------------------*/
 /*Ejercicio nro 7*/
 /*-------------------------------------------------------*/
 SELECT 
-Articulo_nombre,
-Cantidad,
-Precio
+SUM(Cantidad * Precio)
 FROM Historial_compras
 WHERE Historial_compras.Fecha_compra 
 BETWEEN '2022-07-01' AND '2022-07-31';
 /*-------------------------------------------------------*/
 /*Ejercicio nro 8*/
 /*-------------------------------------------------------*/
-SELECT 
-id_carrito,
-Articulo_nombre,
-Cantidad,
-Precio
-FROM Carrito_compras
-WHERE Carrito_compras.Orden_compra = NULL;
+SELECT * FROM Carrito_compras
+WHERE Orden_compra IS NULL;
 /*-------------------------------------------------------*/
 /*Ejercicio nro 9*/
 /*-------------------------------------------------------*/
@@ -139,6 +126,7 @@ WHERE `Cliente`.`DNI` = '12345678';
 /*-------------------------------------------------------*/
 SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE Historial_compras;
+SET FOREIGN_KEY_CHECKS = 1;
 /*-------------------------------------------------------*/
 /*Ejercicio nro 11*/
 /*-------------------------------------------------------*/
@@ -151,42 +139,9 @@ Fecha_Alta,
 Fecha_compra
 FROM Cliente 
 INNER JOIN Carrito_compras
-WHERE Carrito_compras.Fecha_compra > (DATE(NOW()) - INTERVAL 24 MONTH) 
-BETWEEN '2020-07-01' AND '2022-08-14';
-AND Orden_compra != NULL;
-
-SELECT DNI,
-Nro_cliente,
-Apellido_paterno,
-Nombre,
-Edad,
-Fecha_Alta,
-Fecha_compra
-FROM Cliente 
-INNER JOIN Carrito_compras
-WHERE Carrito_compras.Fecha_compra AND Orden_compra != NULL
-BETWEEN (DATE(NOW()) - INTERVAL 24 MONTH) AND (DATE(NOW()));
-
-
-
-ELECT DNI, Nombre, Apellido_paterno, Telefono_cel1
-FROM Cliente 
-INNER JOIN Historial_compras 
-ON Historial_compras.Id_historial=Cliente.Id_historial
-WHERE Historial_compras.Orden_compra IS NOT NULL 
-AND Historial_compras.Fecha_compra 
-BETWEEN '2020-01-01' 
-AND '2021-12-31'
-HAVING Historial_compras.Fecha_Compra > '2022-01-01';
-
-
-
-
-
-
-
-
-
+WHERE Fecha_compra  
+BETWEEN '2020-08-14' AND '2022-08-14'
+AND Orden_compra IS NOT NULL;
 /*-------------------------------------------------------*/
 /*Ejercicio nro 12*/
 /*-------------------------------------------------------*/
@@ -196,11 +151,9 @@ Apellido_paterno,
 Nombre,
 Edad,
 Fecha_Alta,
-Fecha_compra
+Fecha_compra,
+Articulo_nombre
 FROM Cliente 
 INNER JOIN Historial_compras
 WHERE Historial_compras.Articulo_nombre = 'Consola de juegos' 
 AND Cliente.Edad < '35';
-
-
-
