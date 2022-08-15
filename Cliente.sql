@@ -141,6 +141,22 @@ INSERT INTO `Cliente`
    'ricardo35435@gmail.com',
    '2010-05-02',
    '8',
-   '15');
+   '15'),(
+    '1234578',
+   NULL,
+   'Lozano',
+   'Rojas',
+   'Mauricio',
+   'Beltran',
+   '563',
+   'Escobar',
+   '3565248286',
+   '3564268468',
+   '50',
+   'mauriciopepe@gmail.com',
+   '2019-04-25',
+   '6',
+   '11');
+
 
 
